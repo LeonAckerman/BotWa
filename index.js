@@ -1,8 +1,8 @@
-const { default: makeWASocket, useSingleFileAuthState, DisconnectReason } = require("baileys");
+const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = require("baileys");
 const { Boom } = require("@hapi/boom");
 const P = require("pino");
 
-const { state, saveState } = useSingleFileAuthState('./auth_info.json');
+const { state, saveState } = useMultiFileAuthState('./auth_info.json');
 
 const sock = makeWASocket({
   auth: state,
